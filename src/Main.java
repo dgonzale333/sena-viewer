@@ -5,10 +5,14 @@ import edu.misena.senaviewer.model.book;
 import edu.misena.senaviewer.model.chapter;
 import edu.misena.senaviewer.model.magazine;
 import edu.misena.senaviewer.model.movie;
+import edu.misena.senaviewer.model.series;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
+
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
@@ -17,6 +21,8 @@ public class Main {
     private static List<movie> movies = new ArrayList<>();
     private static List<book> books = new ArrayList<>();
     private static List<magazine> magazines = new ArrayList<>();
+    private static List<chapter> chapters = new ArrayList<>();
+    private static List<series> series = new ArrayList<>();
 
     public static void main(String[] args) {
         // Agregar algunos datos de ejemplo
@@ -35,20 +41,22 @@ public class Main {
         System.out.println("1. Movies");
         System.out.println("2. Books");
         System.out.println("3. Magazines");
-        System.out.println("4. Exit");
-        System.out.print("Select an option: ");
+        System.out.println("4. Chapters");
+        System.out.println("5. Series");
+        System.out.println("6. Exit");
+        System.out.print("Escoge una opción: ");
     }
 
     private static int getValidOption() {
         int option = -1;
-        while (option < 1 || option > 4) {
+        while (option < 1 || option > 6) {
             if (scanner.hasNextInt()) {
                 option = scanner.nextInt();
-                if (option < 1 || option > 4) {
-                    System.out.println("Please select a valid option (1-4).");
+                if (option < 1 || option > 6) {
+                    System.out.println("Selecciona una opción (1-6).");
                 }
             } else {
-                System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                System.out.println("Opcion Incorrecta. Escoge un numero entre el  1 y 6.");
                 scanner.next();  // clear invalid input
             }
         }
@@ -67,10 +75,16 @@ public class Main {
                 showMagazines();
                 break;
             case 4:
-                System.out.println("Exiting the application. Goodbye!");
+                showChapter();
+                break;
+            case 5:
+                showSeries();
+                break;
+            case 6:
+                System.out.println("Saliendo de la aplicación");
                 break;
             default:
-                System.out.println("Invalid option. Please try again.");
+                System.out.println("Opción invalida. Intente de nuevo");
                 break;
         }
     }
@@ -83,7 +97,6 @@ public class Main {
             System.out.println("Creator: " + movie.getCreator());
             System.out.println("Duration: " + movie.getDuration() + " minutes");
             System.out.println("Year: " + movie.getYear());
-            System.out.println("Viewed: " + (movie.Viewed() ? "Yes" : "No"));
             System.out.println();
         }
     }
@@ -95,7 +108,6 @@ public class Main {
             System.out.println("Edition Date: " + book.getEditionDate());
             System.out.println("Editorial: " + book.getEditorial());
             System.out.println("ISBN: " + book.getIsbn());
-            System.out.println("Readed: " + (book.isReaded() ? "Yes" : "No"));
             System.out.println();
         }
     }
@@ -110,20 +122,43 @@ public class Main {
         }
     }
 
+    private static void showChapter() {
+        System.out.println("----- Chapters -----");
+        for (chapter chapter : chapters) {
+            System.out.println("Title: " + chapter.getTitle());
+            System.out.println("Duration: " + chapter.getDuration());
+            System.out.println("Year: " + chapter.getYear());
+            System.out.println();
+        }
+    }
+
+    private static void showSeries() {
+        System.out.println("----- Series -----");
+        for (series series : series) {
+            System.out.println("Title: " + series.getTitle());
+            System.out.println("Duration: " + series.getDuration());
+            System.out.println("Year: " + series.getGenero());
+            System.out.println();
+        }
+    }
+
     private static void initializeData() {
-        // Agregar algunas películas de ejemplo
-        movies.add(new movie("Inception", "Sci-Fi", "Christopher Nolan", 148, 2010));
-        movies.add(new movie("The Matrix", "Action", "The Wachowskis", 136, 1999));
+        // Movies
+        movies.add(new movie("Inception", "Sci-Fi", "Christopher Nolan", 148, new Date(14,9,21)));
+        movies.add(new movie("The Matrix", "Action", "The Wachowskis", 136, new Date(99,03,21)));
 
-        // Agregar algunos libros de ejemplo
-        books.add(new book("Effective Java", "2017", "Addison-Wesley", 0134685997));
-        books.add(new book("Clean Code", "2008", "Prentice Hall", 0132350882));
+        // Books
+        books.add(new book("Effective Java", new Date(12,7,31), "Addison-Wesley", 01346));
+        books.add(new book("Clean Code", new Date(11,10,11), "Prentice Hall", 01323));
 
-        // Agregar algunas revistas de ejemplo
-        magazines.add(new magazine("National Geographic", 2023-07, "National Geographic Society"));
-        magazines.add(new magazine("Time", 2023-08, "Time USA, LLC"));
+        // Magazines
+        magazines.add(new magazine("National Geographic", new Date(17 ,01 ,23), "National Geographic Society"));
+        magazines.add(new magazine("Time", new Date(98,05,1), "Time USA, LLC"));
+
+        // Chapters
+        chapters.add(new chapter("Inicio", 170, new Date(04,02,23)));
+
+        // Series
+        series.add(new series("Stranger Things", "Ficción", 50));
     }
 }
-
-
-

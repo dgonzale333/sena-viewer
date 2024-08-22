@@ -12,7 +12,7 @@ public class movie {
     Date year;
     boolean viewed;
     int timeViewed;
-    public movie(){
+    public movie(String title, String genre, String creator, int duration, int year){
 
     }
 
