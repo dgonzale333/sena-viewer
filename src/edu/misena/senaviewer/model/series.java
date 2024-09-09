@@ -2,17 +2,12 @@ package edu.misena.senaviewer.model;
 
 import java.util.Date;
 
-public class series {
+public class series extends Film {
 
-    int id;
-    String title;
-    String genero;
+
     String creator;
-    int duration;
-    Date year;
-    boolean viewed;
-    int timeViewed;
-    int sessionQuantity;
+
+
     public series(String title, String genero, String creator, int duration, int year){
 
     }

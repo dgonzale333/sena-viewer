@@ -33,7 +33,7 @@ public class Main {
             showMainMenu();
             option = getValidOption();
             handleMenuOption(option);
-        } while (option != 7);
+        } while (option != 6);
     }
 
     private static void showMainMenu() {

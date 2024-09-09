@@ -2,24 +2,18 @@ package edu.misena.senaviewer.model;
 
 import java.util.Date;
 
-public class movie extends Film {
+public class Film {
 
-
+    int id;
+    String title;
+    String genre;
+    String creator;
+    int duration;
     Date year;
+    boolean viewed;
+    public Film(){
 
-    public movie(String inception, String s, String christopherNolan, int i, Date date){
-
-        super();
     }
-
-    public movie (
-
-
-            int id, String title,String genre, String creator, int duration, Date year, boolean viewed){
-        super(title,genre,creator,duration);
-        this.year = year;
-    }
-
 
     public String getTitle() {
         return title;
@@ -29,7 +23,7 @@ public class movie extends Film {
         this.title = title;
     }
 
-    public String getGenero() {
+    public String getGenre() {
         return genre;
     }
 
@@ -53,13 +47,11 @@ public class movie extends Film {
         this.duration = duration;
     }
 
-    public Date getYear() {
-        return year;
+    public Film(String title, String genre, String creator, int duration){
+
+        this.title = title;
+        this.genre = genre;
+        this.creator = creator;
+        this.duration = duration;
     }
-
-    public void setYear(Date year) {
-        this.year = year;
-    }
-
-
 }
