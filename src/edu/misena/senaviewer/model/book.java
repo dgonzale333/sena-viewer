@@ -2,42 +2,35 @@ package edu.misena.senaviewer.model;
 
 import java.util.Date;
 
-public class book {
+public class book extends Publication {
 
      int id;
-     String title;
-     Date editionDate;
-     String editorial;
      String authors;
      int isbn;
      boolean readed;
      Date timeReaded;
-     public book(){
 
+
+     public book (String title, Date editionDate, String editorial){
+         super(title, editionDate, editorial);
+     }
+
+    public int getId() {
+        return id;
     }
 
-    public String getTitle() {
-        return title;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public String getAuthors() {
+        return authors;
     }
 
-    public Date getEditionDate() {
-        return editionDate;
-    }
-
-    public void setEditionDate(Date editionDate) {
-        this.editionDate = editionDate;
-    }
-
-    public String getEditorial() {
-        return editorial;
-    }
-
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
+    @Override
+    public void setAuthors(String authors) {
+        this.authors = authors;
     }
 
     public int getIsbn() {
@@ -48,11 +41,30 @@ public class book {
         this.isbn = isbn;
     }
 
-    public book (String title, Date editionDate, String editorial, int isbn){
+    public boolean isReaded() {
+        return readed;
+    }
 
-        this.title = title;
-        this.editionDate = editionDate;
-        this.editorial = editorial;
-        this.isbn = isbn;
+    public void setReaded(boolean readed) {
+        this.readed = readed;
+    }
+
+    public Date getTimeReaded() {
+        return timeReaded;
+    }
+
+    public void setTimeReaded(Date timeReaded) {
+        this.timeReaded = timeReaded;
+    }
+
+    @Override
+    public String toString() {
+        return "book{" +
+                "id=" + id +
+                ", authors='" + authors + '\'' +
+                ", isbn=" + isbn +
+                ", readed=" + readed +
+                ", timeReaded=" + timeReaded +
+                '}';
     }
 }

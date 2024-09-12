@@ -2,45 +2,39 @@ package edu.misena.senaviewer.model;
 
 import java.util.Date;
 
-public class magazine {
+public class magazine extends Publication {
 
     int id;
-    String title;
-    Date editionDate;
-    String editorial;
     String authors;
-    public magazine(){
-
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getEditionDate() {
-        return editionDate;
-    }
-
-    public void setEditionDate(Date editionDate) {
-        this.editionDate = editionDate;
-    }
-
-    public String getEditorial() {
-        return editorial;
-    }
-
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
-    }
 
     public magazine(String title, Date editionDate, String editorial){
+        super(title, editionDate, editorial);
+    }
 
-        this.title = title;
-        this.editionDate = editionDate;
-        this.editorial = editorial;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getAuthors() {
+        return authors;
+    }
+
+    @Override
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
+
+    @Override
+    public String toString() {
+        return "magazine{" +
+                "id=" + id +
+                ", authors='" + authors + '\'' +
+                '}';
     }
 }

@@ -33,7 +33,7 @@ public class Main {
             showMainMenu();
             option = getValidOption();
             handleMenuOption(option);
-        } while (option != 6);
+        } while (option != 8);
     }
 
     private static void showMainMenu() {
@@ -43,20 +43,22 @@ public class Main {
         System.out.println("3. Magazines");
         System.out.println("4. Chapters");
         System.out.println("5. Series");
-        System.out.println("6. Exit");
+        System.out.println("6. Reporte General");
+        System.out.println("7. Reporte del dia");
+        System.out.println("8. Exit");
         System.out.print("Escoge una opción: ");
     }
 
     private static int getValidOption() {
         int option = -1;
-        while (option < 1 || option > 6) {
+        while (option < 1 || option > 8) {
             if (scanner.hasNextInt()) {
                 option = scanner.nextInt();
-                if (option < 1 || option > 6) {
-                    System.out.println("Selecciona una opción (1-6).");
+                if (option < 1 || option > 8) {
+                    System.out.println("Selecciona una opción (1-8).");
                 }
             } else {
-                System.out.println("Opcion Incorrecta. Escoge un numero entre el  1 y 6.");
+                System.out.println("Opcion Incorrecta. Escoge un numero entre el  1 y 8.");
                 scanner.next();  // clear invalid input
             }
         }
@@ -81,6 +83,12 @@ public class Main {
                 showSeries();
                 break;
             case 6:
+                System.out.println("Reporte general guardado");
+                break;
+            case 7:
+                System.out.println("Reporte del dia guardado");
+                break;
+            case 8:
                 System.out.println("Saliendo de la aplicación");
                 break;
             default:
@@ -148,8 +156,8 @@ public class Main {
         movies.add(new movie("The Matrix", "Action", "The Wachowskis", 136, new Date(99,03,21)));
 
         // Books
-        books.add(new book("Effective Java", new Date(12,7,31), "Addison-Wesley", 01346));
-        books.add(new book("Clean Code", new Date(11,10,11), "Prentice Hall", 01323));
+        books.add(new book("Effective Java", new Date(12,7,31), "Addison-Wesley"));
+        books.add(new book("Clean Code", new Date(11,10,11), "Prentice Hall"));
 
         // Magazines
         magazines.add(new magazine("National Geographic", new Date(17 ,01 ,23), "National Geographic Society"));
