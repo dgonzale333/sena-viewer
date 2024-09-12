@@ -5,61 +5,25 @@ import java.util.Date;
 public class movie extends Film {
 
 
-    Date year;
+   int timeViewed;
 
-    public movie(String inception, String s, String christopherNolan, int i, Date date){
+   public movie(String title, String genre, String creator, int duration, Date year) {
+       super(title, genre, creator, duration);
+       setYear(year);
+   }
 
-        super();
+   // Getters y Setters
+    public int getTimeViewed() {
+       return timeViewed;
     }
 
-    public movie (
-
-
-            int id, String title,String genre, String creator, int duration, Date year, boolean viewed){
-        super(title,genre,creator,duration);
-        this.year = year;
+    public void setTimeViewed(int timeViewed) {
+       this.timeViewed = timeViewed;
     }
 
-
-    public String getTitle() {
-        return title;
+    @Override
+    public String toString() {
+       return super.toString() + ", timeViewed=" + timeViewed + "minutes}";
     }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getGenero() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public String getCreator() {
-        return creator;
-    }
-
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public Date getYear() {
-        return year;
-    }
-
-    public void setYear(Date year) {
-        this.year = year;
-    }
-
 
 }

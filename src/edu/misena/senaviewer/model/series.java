@@ -1,47 +1,36 @@
 package edu.misena.senaviewer.model;
 
-import java.util.Date;
-
 public class series extends Film {
+    private int timeViewed;
+    private int sessionQuantity;
 
-
-    String creator;
-
-
-    public series(String title, String genero, String creator, int duration, int year){
-
+    // Constructor
+    public series(String title, String genre, String creator, int duration) {
+        super(title, genre, creator, duration);
     }
 
-    public String getTitle() {
-        return title;
+    // Getters y Setters
+    public int getTimeViewed() {
+        return timeViewed;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTimeViewed(int timeViewed) {
+        this.timeViewed = timeViewed;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getSessionQuantity() {
+        return sessionQuantity;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setSessionQuantity(int sessionQuantity) {
+        this.sessionQuantity = sessionQuantity;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public series(String title, String genero, int duration){
-
-        this.title = title;
-        this.genero = genero;
-        this.duration = duration;
+    @Override
+    public String toString() {
+        return super.toString() + ", timeViewed=" + timeViewed + " minutes, sessionQuantity=" + sessionQuantity + "}";
     }
 }
+
 
 

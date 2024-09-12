@@ -93,7 +93,7 @@ public class Main {
         System.out.println("----- MOVIES -----");
         for (movie movie : movies) {
             System.out.println("Title: " + movie.getTitle());
-            System.out.println("Genre: " + movie.getGenero());
+            System.out.println("Genre: " + movie.getGenre());
             System.out.println("Creator: " + movie.getCreator());
             System.out.println("Duration: " + movie.getDuration() + " minutes");
             System.out.println("Year: " + movie.getYear());
@@ -137,7 +137,7 @@ public class Main {
         for (series series : series) {
             System.out.println("Title: " + series.getTitle());
             System.out.println("Duration: " + series.getDuration());
-            System.out.println("Year: " + series.getGenero());
+            System.out.println("Year: " + series.getGenre());
             System.out.println();
         }
     }
@@ -158,7 +158,5 @@ public class Main {
         // Chapters
         chapters.add(new chapter("Inicio", 170, new Date(04,02,23)));
 
-        // Series
-        series.add(new series("Stranger Things", "Ficción", 50));
     }
 }
